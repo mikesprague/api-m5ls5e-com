@@ -1,0 +1,10 @@
+[build]
+  command = "yarn build"
+  functions = "lambda"
+
+[dev]
+  command = "yarn start"
+  functionsPort = 9000
+
+[production]
+  command = "yarn build"

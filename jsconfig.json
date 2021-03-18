@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "experimentalDecorators": true,
+    "target": "es2020"
+  },
+  "exclude": [
+    "node_modules",
+    "lambda",
+    ".vscode",
+    ".history",
+    ".git"
+  ],
+  "include": [
+    "src/functions/**/*"
+  ]
+}
