@@ -25,12 +25,12 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.6",
+    "cheerio": "^1.0.0-rc.9",
     "cross-env": "^7.0.3",
     "dayjs": "^1.10.4",
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.0",
     "nanoid": "^3.1.22",
-    "snyk": "^1.574.0"
+    "snyk": "^1.586.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
