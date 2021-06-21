@@ -1,16 +1,14 @@
 {
   "name": "api-m5ls5e-com",
   "version": "0.1.0",
-  "description": "Netlify functions I use as API endpoints in various projects",
+  "description": "Serverless functions I use as API endpoints in various projects",
   "private": true,
   "engines": {
-    "node": ">= 12.x",
-    "npm": ">= 6.x",
+    "node": ">= 14.x",
     "yarn": ">= 1.22.4"
   },
   "scripts": {
-    "build": "netlify-lambda build ./src/functions",
-    "start": "netlify-lambda serve ./src/functions",
+    "start": "vercel dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -56,10 +54,10 @@
     "eslint-plugin-markdown": "^2.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-security": "^1.4.0",
-    "netlify-lambda": "^2.0.9",
     "prettier": "^2.3.1",
     "prettier-eslint": "^12.0.0",
     "typescript": "^4.3.4",
+    "vercel": "^23.0.1",
     "webpack": "^5.39.1"
   },
   "babel": {

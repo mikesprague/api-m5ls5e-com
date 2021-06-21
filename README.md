@@ -1,2 +1,3 @@
-# m5ls5e-apis
-Netlify functions I use as API endpoints in various projects
+# api-m5ls5e-com
+
+Serverless functions I use as API endpoints in various projects

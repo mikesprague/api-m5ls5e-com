@@ -12,6 +12,6 @@
     ".git"
   ],
   "include": [
-    "src/functions/**/*"
+    "api/**/*"
   ]
 }
