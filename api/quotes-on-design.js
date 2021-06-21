@@ -1,11 +1,6 @@
 const axios = require('axios').default;
 
-exports.handler = async (event, context, callback) => {
-  const callbackHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  };
-
+module.exports = async (req, res) => {
   const normalizeQuoteData = (apiData) => {
     const returnData = apiData.map((quoteData) => {
       const { content, excerpt, link: quoteLink, title } = quoteData || null;
@@ -23,20 +18,12 @@ exports.handler = async (event, context, callback) => {
     return returnData;
   };
 
-  const quotesData = await axios
+  const returnData = await axios
     .get('https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand')
     .then((response) => normalizeQuoteData(response.data))
     .catch((error) => {
       console.error(error);
-      return {
-        headers: callbackHeaders,
-        statusCode: 500,
-        body: JSON.stringify(error),
-      };
+      res.status(500).json(error);
     });
-  return {
-    headers: callbackHeaders,
-    statusCode: 200,
-    body: JSON.stringify(quotesData),
-  };
+  res.status(200).json(returnData);
 };

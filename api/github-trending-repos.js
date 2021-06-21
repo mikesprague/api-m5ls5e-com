@@ -1,12 +1,7 @@
 const axios = require('axios').default;
 const cheerio = require('cheerio');
 
-exports.handler = async (event, context, callback) => {
-  const callbackHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  };
-
+module.exports = async (req, res) => {
   const postsData = await axios
     .get('https://github.com/trending?spoken_language_code=en')
     .then((response) => {
@@ -24,14 +19,20 @@ exports.handler = async (event, context, callback) => {
       const returnData = [];
       $(rowSelector).each((i, elem) => {
         const title = $(elem).find(linkTitleSelector).attr('href').substring(1);
-        const link = `https://github.com${$(elem).find(linkTitleSelector).attr('href')}`;
+        const link = `https://github.com${$(elem)
+          .find(linkTitleSelector)
+          .attr('href')}`;
         const description = $(elem)
           .find(descriptionSelector)
           .text()
           .replace(/\r?\n|\r/, '')
           .trim();
-        const forksLink = `https://github.com${$(elem).find(forksSelector).attr('href')}`;
-        const starsLink = `https://github.com${$(elem).find(starsSelector).attr('href')}`;
+        const forksLink = `https://github.com${$(elem)
+          .find(forksSelector)
+          .attr('href')}`;
+        const starsLink = `https://github.com${$(elem)
+          .find(starsSelector)
+          .attr('href')}`;
         const stars = $(elem)
           .find(starsSelector)
           .text()
@@ -75,15 +76,7 @@ exports.handler = async (event, context, callback) => {
     })
     .catch((error) => {
       console.error(error);
-      return {
-        headers: callbackHeaders,
-        statusCode: 500,
-        body: JSON.stringify(error),
-      };
+      res.status(500).json(error);
     });
-  return {
-    headers: callbackHeaders,
-    statusCode: 200,
-    body: JSON.stringify(postsData),
-  };
+  res.status(200).json(postsData);
 };

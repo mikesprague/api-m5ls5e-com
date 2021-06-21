@@ -1,13 +1,7 @@
 const axios = require('axios').default;
 
-exports.handler = async (event, context, callback) => {
-  const { limit = 10, sub = 'popular' } = event.queryStringParameters;
-  const callbackHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  };
-  const apiUrl = `https://www.reddit.com/r/${sub}.json?limit=${limit}`;
-  console.log(apiUrl);
+module.exports = async (req, res) => {
+  const { limit = 10, sub = 'popular' } = req.query;
   const redditPosts = await axios
     .get(`https://www.reddit.com/r/${sub}.json?limit=${limit}`)
     .then((response) => {
@@ -17,15 +11,7 @@ exports.handler = async (event, context, callback) => {
     })
     .catch((error) => {
       console.error(error);
-      return {
-        headers: callbackHeaders,
-        statusCode: 500,
-        body: JSON.stringify(error),
-      };
+      res.status(500).json(error);
     });
-  return {
-    headers: callbackHeaders,
-    statusCode: 200,
-    body: JSON.stringify(redditPosts),
-  };
+  res.status(200).json(redditPosts);
 };
