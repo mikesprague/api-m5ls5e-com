@@ -106,3 +106,5 @@ dist
 # misc stuff
 .history/
 lambda/
+
+.vercel
