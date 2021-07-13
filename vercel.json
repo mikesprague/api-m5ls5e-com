@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://github.com/mikesprague/api-m5ls5e-com/",
+      "statusCode": 301
+    }
+  ]
+}
