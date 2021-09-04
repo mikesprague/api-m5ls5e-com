@@ -22,13 +22,13 @@
   "homepage": "",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "cheerio": "^1.0.0-rc.10",
     "cross-env": "^7.0.3",
     "dayjs": "^1.10.6",
     "dotenv": "^10.0.0",
     "nanoid": "^3.1.25",
-    "snyk": "^1.681.0"
+    "snyk": "^1.696.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
