@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
       const rowSelector = 'article.Box-row';
       const linkTitleSelector = 'h1 > a';
       const descriptionSelector = 'p';
-      const languageSelector = 'div.f6.color-text-secondary.mt-2';
+      const languageSelector = 'div.f6.color-fg-muted.mt-2';
       const starsSelector = `${languageSelector} > a:nth-child(2)`;
       const forksSelector = `${languageSelector} > a:nth-child(3)`;
       const starsTodaySelector = `${languageSelector} > span.d-inline-block.float-sm-right`;
@@ -78,5 +78,6 @@ module.exports = async (req, res) => {
       console.error(error);
       res.status(500).json(error);
     });
+  res.setHeader('Cache-Control', 'max-age=3600, s-maxage=3600');
   res.status(200).json(postsData);
 };
