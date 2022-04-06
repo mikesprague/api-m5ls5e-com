@@ -33,7 +33,7 @@
     "snyk": "1.871.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.7",
+    "@babel/core": "7.17.9",
     "@babel/eslint-parser": "7.17.0",
     "@babel/eslint-plugin": "7.17.7",
     "@babel/plugin-proposal-class-properties": "7.16.7",
@@ -43,24 +43,24 @@
     "@babel/plugin-transform-object-assign": "7.16.7",
     "@babel/plugin-transform-runtime": "7.17.0",
     "@babel/preset-env": "7.16.11",
-    "@babel/runtime": "7.17.7",
-    "@typescript-eslint/eslint-plugin": "5.15.0",
-    "@typescript-eslint/parser": "5.15.0",
+    "@babel/runtime": "7.17.9",
+    "@typescript-eslint/eslint-plugin": "5.18.0",
+    "@typescript-eslint/parser": "5.18.0",
     "@octokit/core": "3.6.0",
-    "babel-loader": "8.2.3",
-    "eslint": "8.11.0",
+    "babel-loader": "8.2.4",
+    "eslint": "8.12.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-compat": "4.0.2",
-    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-import": "2.26.0",
     "eslint-plugin-markdown": "2.2.1",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-security": "1.4.0",
-    "prettier": "2.5.1",
+    "prettier": "2.6.2",
     "prettier-eslint": "13.0.0",
-    "typescript": "4.6.2",
-    "vercel": "24.0.0",
-    "webpack": "5.70.0"
+    "typescript": "4.6.3",
+    "vercel": "24.0.1",
+    "webpack": "5.71.0"
   },
   "babel": {
     "plugins": [
