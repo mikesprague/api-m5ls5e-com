@@ -2380,10 +2380,17 @@ dayjs@1.11.0:
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.0.tgz#009bf7ef2e2ea2d5db2e6583d2d39a4b5061e805"
   integrity sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==
 
-debug@4, debug@4.3.3, debug@^4.3.2:
+debug@4, debug@^4.3.2:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
   integrity sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==
+  dependencies:
+    ms "2.1.2"
+
+debug@4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
+  integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
 
@@ -3866,10 +3873,10 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-nanoid@3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.1.tgz#6347a18cac88af88f58af0b3594b723d5e99bb35"
-  integrity sha512-n6Vs/3KGyxPQd6uO0eH4Bv0ojGSUvuLlIHtC3Y0kEO23YRge8H9x1GCzLn28YX0H66pMkxuaeESFq4tKISKwdw==
+nanoid@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.2.tgz#c89622fafb4381cd221421c69ec58547a1eec557"
+  integrity sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==
 
 natural-compare@^1.4.0:
   version "1.4.0"
@@ -4210,13 +4217,13 @@ pupa@^2.0.1:
   dependencies:
     escape-goat "^2.0.0"
 
-puppeteer@13.5.1:
-  version "13.5.1"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-13.5.1.tgz#d0f751bf36120efc2ebf74c7562a204a84e500e9"
-  integrity sha512-wWxO//vMiqxlvuzHMAJ0pRJeDHvDtM7DQpW1GKdStz2nZo2G42kOXBDgkmQ+zqjwMCFofKGesBeeKxIkX9BO+w==
+puppeteer@13.5.2:
+  version "13.5.2"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-13.5.2.tgz#73ae84969cbf514aeee871a05ec4549d67f6abee"
+  integrity sha512-DJAyXODBikZ3xPs8C35CtExEw78LZR9RyelGDAs0tX1dERv3OfW7qpQ9VPBgsfz+hG2HiMTO/Tyf7BuMVWsrxg==
   dependencies:
     cross-fetch "3.1.5"
-    debug "4.3.3"
+    debug "4.3.4"
     devtools-protocol "0.0.969999"
     extract-zip "2.0.1"
     https-proxy-agent "5.0.0"
@@ -4526,10 +4533,10 @@ slice-ansi@^4.0.0:
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
 
-snyk@1.871.0:
-  version "1.871.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.871.0.tgz#27adeef2883a377573b0d91ed0237421d1ad9895"
-  integrity sha512-3GXhg4s+J2XPKh60N9tV3DArVpQB1jRLoF8Ln/+0IC4gaGXAry2OU4IULis/1ng4agdsUcNOjDV6ahTXS9g+3g==
+snyk@1.896.0:
+  version "1.896.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.896.0.tgz#7f2d6a4cb89bbadf270fba1bb91b88733eb6dbd7"
+  integrity sha512-Mf0opgb8ClBDtNQqKsSRnnbIgWk8qg5BYyKElkVtmzG8IJ2uGvLF6fhT9vKQPS4K1DcglDZ9Peystj5ghYh5fw==
 
 source-map-support@^0.5.17, source-map-support@~0.5.19:
   version "0.5.19"
