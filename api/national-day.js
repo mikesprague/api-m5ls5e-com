@@ -26,36 +26,24 @@ module.exports = async (req, res) => {
     .then((response) => {
       const $ = cheerio.load(response.data);
       // console.log(response.data);
-      // const container = $('.ndc-text-');
-      // const dateTextSelector = 'div.ndc-text- > p:nth-child(1)';
-      const h2Selectors = '.ndc-text- h2';
-      const h3Selectors = '.ndc-text- h3';
-
       const allData = [];
-      $(h2Selectors).each((idx, elem) => {
-        const link = $(elem).next('p').find('a').attr('href');
-        const title = $(elem).text();
-        const description = $(elem).next('p').text().replace('Read more…', '');
-        if (title.length && description.length && link.length) {
-          allData.push({
-            title,
-            description,
-            link,
-          });
-        }
-      });
-      $(h3Selectors).each((idx, elem) => {
-        const link = $(elem).next('p').find('a').attr('href');
-        // console.log(link);
-        const title = $(elem).text();
-        const description = $(elem).next('p').text().replace('Read more…', '');
-        if (title.length && description.length && link.length) {
-          allData.push({
-            title,
-            description,
-            link,
-          });
-        }
+      const titleSelectors = ['.ndc-text- h2', '.ndc-text- h3'];
+      titleSelectors.forEach((titleSelector) => {
+        $(titleSelector).each((idx, elem) => {
+          const link = $(elem).next('p').find('a').attr('href');
+          const title = $(elem).text();
+          const description = $(elem)
+            .next('p')
+            .text()
+            .replace('Read more…', '');
+          if (title.length && description.length && link.length) {
+            allData.push({
+              title,
+              description,
+              link,
+            });
+          }
+        });
       });
       res.setHeader('Cache-Control', 'max-age=3600, s-maxage=3600');
       res.status(200).json(allData);
