@@ -2,24 +2,19 @@ const axios = require('axios').default;
 const cheerio = require('cheerio');
 
 module.exports = async (req, res) => {
-  const feedData = await axios
-    .get('http://nationaldaycalendar.com/feed/')
+  const pageData = await axios
+    .get('http://nationaldaycalendar.com/read/')
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
     });
   // console.log(feedData);
-  const feed$ = cheerio.load(feedData, {
-    xml: {
-      xmlMode: true,
-      recognizeCDATA: true,
-      normalizeWhitespace: true,
-      decodeEntities: true,
-    },
-  });
-  const firstItem = feed$('item').first();
-  const pageUrl = firstItem.find('guid').text();
-  // console.log(pageUrl);
+  const page$ = cheerio.load(pageData);
+  const firstLinkSelector =
+    '#ff-main-container > main > article > section > div > div:nth-child(1) > div > div > div:nth-child(1)';
+  const firstItem = page$(firstLinkSelector);
+  const firstLink = page$(firstItem).find('a');
+  const pageUrl = firstLink.attr('href');
 
   await axios
     .get(pageUrl)
