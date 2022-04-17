@@ -1,9 +1,12 @@
 const axios = require('axios').default;
 const cheerio = require('cheerio');
 
+// data source: https://nationaldaycalendar.com
+
 module.exports = async (req, res) => {
+  const allData = [];
   const pageData = await axios
-    .get('http://nationaldaycalendar.com/read/')
+    .get('https://nationaldaycalendar.com/read/')
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
@@ -14,7 +17,6 @@ module.exports = async (req, res) => {
   const firstItem = page$(firstLinkSelector);
   const firstLink = page$(firstItem).find('a');
   const pageUrl = firstLink.attr('href');
-  const allData = [];
   await axios
     .get(pageUrl)
     .then((response) => {
@@ -23,7 +25,6 @@ module.exports = async (req, res) => {
       const titleSelectors = ['.ndc-text- h2', '.ndc-text- h3'];
       titleSelectors.forEach((titleSelector) => {
         $(titleSelector).each((idx, elem) => {
-          const isBirthday = false;
           const title = $(elem).text().trim().toUpperCase();
           const link = $(elem).next('p').find('a').attr('href');
           const description = $(elem)
@@ -35,44 +36,15 @@ module.exports = async (req, res) => {
               title,
               description,
               link,
-              isBirthday,
             });
           }
         });
       });
+      res.setHeader('Cache-Control', 'max-age=3600, s-maxage=3600');
+      res.status(200).json(allData);
     })
     .catch((error) => {
       console.error(error);
       res.status(500).json(error);
     });
-  await axios
-    .get('https://nationaltoday.com/what-is-today/')
-    .then((response) => {
-      const $ = cheerio.load(response.data);
-      // console.log(response.data);
-      const contentSelector = '.day-card .card-content .title-box';
-
-      $(contentSelector).each((idx, elem) => {
-        const title = $(elem).find('a').text().trim().toUpperCase();
-        const description = $(elem).find('p.excerpt').text().trim();
-        const link = $(elem).find('a').attr('href').trim();
-        const isBirthday = link.toLowerCase().includes('birthday');
-        if (title.length && description.length && link.length) {
-          allData.push({
-            title: `${isBirthday ? `BIRTHDAY: ${title}` : title}`,
-            description,
-            link,
-            isBirthday,
-          });
-        }
-      });
-    });
-  const dedupeArrayOfObjects = (objArray, key) => [
-    ...new Map(objArray.map((item) => [item[key], item])).values(),
-  ];
-  const finalData = dedupeArrayOfObjects(allData, 'title');
-  console.log(finalData);
-
-  res.setHeader('Cache-Control', 'max-age=3600, s-maxage=3600');
-  res.status(200).json(finalData);
 };
