@@ -8,17 +8,29 @@ module.exports = async (req, res) => {
   const allData = [];
 
   try {
-    const nationalTodayData = await axios
-      .get('https://api.m5ls5e.com/api/national-today')
-      .then((response) => response.data);
-
-    allData.push(...nationalTodayData);
-
     const nationalDayCalendarData = await axios
       .get('https://api.m5ls5e.com/api/national-day-calendar')
       .then((response) => response.data);
-
     allData.push(...nationalDayCalendarData);
+
+    const nationalTodayData = await axios
+      .get('https://api.m5ls5e.com/api/national-today')
+      .then((response) => response.data);
+    // allData.push(...nationalTodayData);
+
+    const regex = /(-|\s|world|international|national|day|eve)/gi;
+    const titlesToCompare = nationalDayCalendarData.map((day) =>
+      day.title.toLowerCase().replace(regex, ''),
+    );
+    // console.log('titlesToCompare: ', titlesToCompare);
+
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const day of nationalTodayData) {
+      const cleanTitle = day.title.toLowerCase().replace(regex, '');
+      if (!titlesToCompare.includes(cleanTitle)) {
+        allData.push(day);
+      }
+    }
 
     const finalData = dedupeArrayOfObjects(allData, 'title');
     console.log(finalData);
