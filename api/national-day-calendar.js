@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
             .next('p')
             .text()
             .replace('Read more…', '');
-          if (title.length && description.length && link.length) {
+          if (title && description && link) {
             allData.push({
               title,
               description,
