@@ -1,7 +1,7 @@
-const chromium = require('chrome-aws-lambda');
-const puppeteer = require('puppeteer');
+import chromium from 'chrome-aws-lambda';
+import puppeteer from 'puppeteer';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const browser = await puppeteer.launch(
     process.env.AWS_EXECUTION_ENV
       ? {
@@ -15,7 +15,6 @@ module.exports = async (req, res) => {
   );
 
   const page = await browser.newPage();
-
   await page.emulateTimezone('America/New_York');
   await page.goto('https://www.nytimes.com/games/wordle/index.html');
 

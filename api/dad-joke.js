@@ -1,6 +1,6 @@
-const axios = require('axios').default;
+import axios from 'axios';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const apiUrl = 'https://icanhazdadjoke.com';
   const returnData = await axios
     .get(apiUrl, {

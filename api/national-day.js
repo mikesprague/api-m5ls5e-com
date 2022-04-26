@@ -1,10 +1,10 @@
-const axios = require('axios').default;
+import axios from 'axios';
 
 const dedupeArrayOfObjects = (objArray, key) => [
   ...new Map(objArray.map((item) => [item[key], item])).values(),
 ];
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const allData = [];
 
   try {

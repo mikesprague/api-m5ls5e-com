@@ -1,9 +1,9 @@
-const axios = require('axios').default;
-const cheerio = require('cheerio');
+import axios from 'axios';
+import cheerio from 'cheerio';
 
 // data source: https://nationaltoday.com
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   await axios
     .get('https://nationaltoday.com/what-is-today/')
     .then((response) => {

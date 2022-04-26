@@ -1,6 +1,6 @@
-const axios = require('axios').default;
+import axios from 'axios';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const normalizeQuoteData = (apiData) => {
     const returnData = apiData.map((quoteData) => {
       const { content, excerpt, link: quoteLink, title } = quoteData || null;

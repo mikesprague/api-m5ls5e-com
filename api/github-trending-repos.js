@@ -1,7 +1,7 @@
-const axios = require('axios').default;
-const cheerio = require('cheerio');
+import axios from 'axios';
+import cheerio from 'cheerio';
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const postsData = await axios
     .get('https://github.com/trending?spoken_language_code=en')
     .then((response) => {
