@@ -33,7 +33,7 @@
     "puppeteer": "13.6.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.9",
+    "@babel/core": "7.17.10",
     "@babel/eslint-parser": "7.17.0",
     "@babel/eslint-plugin": "7.17.7",
     "@babel/plugin-proposal-class-properties": "7.16.7",
@@ -41,8 +41,8 @@
     "@babel/plugin-proposal-object-rest-spread": "7.17.3",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-transform-object-assign": "7.16.7",
-    "@babel/plugin-transform-runtime": "7.17.0",
-    "@babel/preset-env": "7.16.11",
+    "@babel/plugin-transform-runtime": "7.17.10",
+    "@babel/preset-env": "7.17.10",
     "@babel/runtime": "7.17.9",
     "@octokit/core": "3.6.0",
     "@typescript-eslint/eslint-plugin": "5.21.0",
@@ -57,9 +57,9 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-security": "1.5.0",
     "prettier": "2.6.2",
-    "prettier-eslint": "14.0.1",
-    "typescript": "4.6.3",
-    "vercel": "24.1.0",
+    "prettier-eslint": "14.0.2",
+    "typescript": "4.6.4",
+    "vercel": "24.2.0",
     "webpack": "5.72.0"
   },
   "babel": {
