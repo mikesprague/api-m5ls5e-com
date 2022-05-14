@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 
 export default async (req, res) => {
   const browser = await puppeteer.launch(
-    process.env.AWS_EXECUTION_ENV
+    process.env.AWS_LAMBDA_FUNCTION_VERSION
       ? {
           args: chromium.args,
           executablePath: await chromium.executablePath,
@@ -27,22 +27,6 @@ export default async (req, res) => {
 
   await browser.close();
 
-  const now = new Date();
-  const midnight = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate() + 1,
-    0,
-    0,
-    0,
-  );
-  const secondsUntilMidnight = Math.round(
-    (midnight.getTime() - now.getTime()) / 1000,
-  );
-
-  res.setHeader(
-    'Cache-Control',
-    `max-age=${secondsUntilMidnight}, s-maxage=${secondsUntilMidnight}`,
-  );
+  res.setHeader('Cache-Control', `max-age=7200, s-maxage=7200`);
   res.status(200).json(solution);
 };
