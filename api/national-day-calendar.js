@@ -25,7 +25,7 @@ export default async (req, res) => {
       const titleSelectors = ['.ndc-text- h2', '.ndc-text- h3'];
       titleSelectors.forEach((titleSelector) => {
         $(titleSelector).each((idx, elem) => {
-          const title = $(elem).text().trim().toUpperCase();
+          const title = $(elem).text().toUpperCase().split('|')[0].trim();
           const link = $(elem).next('p').find('a').attr('href');
           const description = $(elem)
             .next('p')
