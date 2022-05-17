@@ -8,11 +8,12 @@
     "strictFunctionTypes": true
   },
   "exclude": [
-    "node_modules",
-    "lambda",
-    ".vscode",
-    ".history",
-    ".git"
+    "**/.history/*",
+    "**/.vercel/*",
+    "**/node_modules/*",
+    "**/.vscode/*",
+    "**/.git/*",
+
   ],
   "include": [
     "api/**/*"
