@@ -3,6 +3,8 @@ import cheerio from 'cheerio';
 
 // data source: https://nationaldaycalendar.com
 
+process.env.TZ = 'America/New_York';
+
 export default async (req, res) => {
   const allData = [];
   const pageData = await axios
