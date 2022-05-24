@@ -24,7 +24,11 @@ export default async (req, res) => {
     .then((response) => {
       const $ = cheerio.load(response.data);
       // console.log(response.data);
-      const titleSelectors = ['.ndc-text- h2', '.ndc-text- h3'];
+      const titleSelectors = [
+        '.ndc-text- h1',
+        '.ndc-text- h2',
+        '.ndc-text- h3',
+      ];
       titleSelectors.forEach((titleSelector) => {
         $(titleSelector).each((idx, elem) => {
           const title = $(elem).text().toUpperCase().split('|')[0].trim();
