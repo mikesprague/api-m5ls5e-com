@@ -25,9 +25,9 @@ export default async (req, res) => {
       const $ = cheerio.load(response.data);
       // console.log(response.data);
       const titleSelectors = [
-        '.ndc-text- h1',
-        '.ndc-text- h2',
-        '.ndc-text- h3',
+        'main section h1',
+        'main section h2',
+        'main section h3',
       ];
       titleSelectors.forEach((titleSelector) => {
         $(titleSelector).each((idx, elem) => {
@@ -37,6 +37,7 @@ export default async (req, res) => {
             .next('p')
             .text()
             .replace('Read more…', '');
+          console.log(title, description, link);
           if (title && description && link) {
             allData.push({
               title,
