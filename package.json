@@ -40,7 +40,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.7.1",
     "prettier-eslint": "15.0.1",
-    "vercel": "25.2.3"
+    "vercel": "26.0.0"
   },
   "overrides": {
     "@types/eslint": "8.4.3"
