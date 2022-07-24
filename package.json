@@ -42,9 +42,6 @@
     "prettier-eslint": "15.0.1",
     "vercel": "27.2.0"
   },
-  "overrides": {
-    "@types/eslint": "8.4.3"
-  },
   "eslintConfig": {
     "env": {
       "browser": false,
