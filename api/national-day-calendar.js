@@ -32,8 +32,8 @@ export default async (req, res) => {
       });
     const selector = '#ff-main-container > main > article > section';
     const $desc = cheerio.load(descriptionData);
-    const description = $desc(selector).find('p').first().text().trim();
-    // console.log(description);
+    const description = $desc(selector).find('h2 ~ p').first().text().trim();
+    console.log(description);
     if (title && link && description) {
       allData.push({
         title,
