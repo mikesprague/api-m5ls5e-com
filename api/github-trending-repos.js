@@ -1,11 +1,11 @@
-import axios from 'axios';
+import got from 'got';
 import cheerio from 'cheerio';
 
 export default async (req, res) => {
-  const postsData = await axios
+  const postsData = await got
     .get('https://github.com/trending?spoken_language_code=en')
     .then((response) => {
-      const markup = response.data;
+      const markup = response.body;
       const rowSelector = 'article.Box-row';
       const linkTitleSelector = 'h1 > a';
       const descriptionSelector = 'p';

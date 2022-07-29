@@ -1,4 +1,4 @@
-import axios from 'axios';
+import got from 'got';
 
 export default async (req, res) => {
   const normalizeQuoteData = (apiData) => {
@@ -18,9 +18,9 @@ export default async (req, res) => {
     return returnData;
   };
 
-  const returnData = await axios
+  const returnData = await got
     .get('https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand')
-    .then((response) => normalizeQuoteData(response.data))
+    .then((response) => normalizeQuoteData(response.body))
     .catch((error) => {
       console.error(error);
       res.status(500).json(error);

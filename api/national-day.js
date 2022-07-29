@@ -1,4 +1,4 @@
-import axios from 'axios';
+import got from 'got';
 
 const dedupeArrayOfObjects = (objArray, key) => [
   ...new Map(objArray.map((item) => [item[key], item])).values(),
@@ -8,14 +8,14 @@ export default async (req, res) => {
   const allData = [];
 
   try {
-    const nationalDayCalendarData = await axios
+    const nationalDayCalendarData = await got
       .get('https://api.m5ls5e.com/api/national-day-calendar')
-      .then((response) => response.data);
+      .then((response) => response.body);
     allData.push(...nationalDayCalendarData);
 
-    const nationalTodayData = await axios
+    const nationalTodayData = await got
       .get('https://api.m5ls5e.com/api/national-today')
-      .then((response) => response.data);
+      .then((response) => response.body);
     // allData.push(...nationalTodayData);
 
     const regex = /(-|\s|world|international|national|day|eve)/gi;

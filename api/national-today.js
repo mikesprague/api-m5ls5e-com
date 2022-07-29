@@ -1,13 +1,13 @@
-import axios from 'axios';
+import got from 'got';
 import cheerio from 'cheerio';
 
 // data source: https://nationaltoday.com
 
 export default async (req, res) => {
-  await axios
+  await got
     .get('https://nationaltoday.com/what-is-today/')
     .then((response) => {
-      const $ = cheerio.load(response.data);
+      const $ = cheerio.load(response.body);
       // console.log(response.data);
       const allData = [];
       const contentSelector = '.day-card .card-content .title-box';

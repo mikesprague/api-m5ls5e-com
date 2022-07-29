@@ -1,4 +1,4 @@
-import axios from 'axios';
+import got from 'got';
 import cheerio from 'cheerio';
 
 // data source: https://nationaldaycalendar.com
@@ -7,9 +7,9 @@ process.env.TZ = 'America/New_York';
 
 export default async (req, res) => {
   const allData = [];
-  const pageData = await axios
+  const pageData = await got
     .get('https://nationaldaycalendar.com/')
-    .then((response) => response.data)
+    .then((response) => response.body)
     .catch((error) => {
       console.error(error);
       res.status(500).json(error);
@@ -24,8 +24,8 @@ export default async (req, res) => {
     const title = $(day).find('span.evcal_event_title').text().trim();
     const link = $(day).find('a').first().attr('href').trim();
     // console.log(title, link);
-    const descriptionData = await axios(link)
-      .then((response) => response.data)
+    const descriptionData = await got(link)
+      .then((response) => response.body)
       .catch((error) => {
         console.error(error);
         res.status(500).json(error);
