@@ -30,7 +30,7 @@
     "got": "12.3.0"
   },
   "devDependencies": {
-    "@babel/core": "7.18.9",
+    "@babel/core": "7.18.10",
     "@babel/eslint-parser": "7.18.9",
     "cross-env": "7.0.3",
     "eslint": "8.21.0",
@@ -39,7 +39,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.7.1",
     "prettier-eslint": "15.0.1",
-    "vercel": "27.3.3"
+    "vercel": "27.3.4"
   },
   "eslintConfig": {
     "env": {
